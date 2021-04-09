@@ -16,15 +16,15 @@ const mobilePlaylistUrl = `${playlistUrl}${mobileplayListID}`;
 
 const webPlaylistUrl = `${playlistUrl}${webplayListID}`;
 
-const videoURL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&key=${API_KEY}&id=`;
+const videoURL = `https://youtube.googleapis.com/youtube/v3/videos?part=statistics,snippet&key=${API_KEY}&id=`;
 
 const mobileVideosFileName = "mobile-videos.json";
 
 const webVideosFileName = "web-videos.json";
 
-const parseResponse = (res, allvideoIds) => {
-  return res.map((item, index) => {
-    return { videoId: allvideoIds[index], ...item.snippet };
+const parseResponse = (res) => {
+  return res.map((item) => {
+    return item;
   });
 };
 
@@ -46,7 +46,7 @@ const getVideos = (playlistURL, fileName) => {
       const detailedVideoUrl = `${videoURL}${allvideoIds.join(",")}`;
       got(detailedVideoUrl).then((res) => {
         const parsedRes = JSON.parse(res.body) || {};
-        writeToFile(parseResponse(parsedRes.items, allvideoIds), fileName);
+        writeToFile(parseResponse(parsedRes.items), fileName);
       });
     })
     .catch((error) => {
