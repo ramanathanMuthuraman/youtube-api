@@ -1,7 +1,8 @@
 const got = require("got");
 const fs = require("fs");
+require("dotenv").config();
 
-const API_KEY = "";
+const API_KEY = process.env.API_KEY;
 
 const mobileplayListID = "PL0cKRR9GVgpflUrCR4BNqbd8YAKFrKp5w";
 
