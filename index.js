@@ -30,7 +30,7 @@ const parseResponse = (res) => {
 
 const writeToFile = (response, fileName) => {
   try {
-    fs.writeFileSync(fileName, JSON.stringify(response, undefined, 2));
+    fs.writeFileSync(fileName, JSON.stringify(response));
   } catch (err) {
     console.error(err);
   }
