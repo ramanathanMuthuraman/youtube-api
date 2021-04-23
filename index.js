@@ -4,9 +4,9 @@ require("dotenv").config();
 
 const API_KEY = process.env.API_KEY;
 
-const mobileplayListID = "PL0cKRR9GVgpflUrCR4BNqbd8YAKFrKp5w";
+const mobileplayListID = "PL0cKRR9GVgpfJFartbCe5nMaVqZeerDSK";
 
-const webplayListID = "PL0cKRR9GVgpfikqBWGkJ3P7T4oV7zEI8I";
+const webplayListID = "PL0cKRR9GVgpeGzErOxrxzKUof2rd0Dj1I";
 
 const maxResults = 50;
 
@@ -47,6 +47,13 @@ const getVideos = (playlistURL, fileName) => {
       got(detailedVideoUrl).then((res) => {
         const parsedRes = JSON.parse(res.body) || {};
         writeToFile(parseResponse(parsedRes.items), fileName);
+        // const a = parsedRes.items.map((item) => {
+        //   return {
+        //     title: item.snippet.title,
+        //     description: item.snippet.description,
+        //   };
+        // });
+        // console.log(a);
       });
     })
     .catch((error) => {
