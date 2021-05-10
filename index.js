@@ -24,6 +24,7 @@ const webVideosFileName = "web-videos.json";
 
 const parseResponse = (res) => {
   return res.map((item) => {
+    item.snippet.publishedOn = item.snippet.publishedAt;
     return item;
   });
 };
