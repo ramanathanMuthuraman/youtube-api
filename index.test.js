@@ -60,22 +60,24 @@ const detailedVideoResponse = {
 const mobileDetailedVideoResponse = detailedVideoResponse;
 const webDetailedVideoResponse = detailedVideoResponse;
 
-const expectedResponse = [
-  {
-    kind: "youtube#video",
-    etag: "1J5ad0uE1OEFfgqwSw5J4NDlo3s",
-    id: "3KfX8xm5QgQ",
-    snippet: [null],
-    statistics: [null],
-  },
-  {
-    kind: "youtube#video",
-    etag: "cVWuvBX5eI-lsmxaZrRam74HMcs",
-    id: "UHdKOtTChjY",
-    snippet: [null],
-    statistics: [null],
-  },
-];
+const expectedResponse = {
+  videos: [
+    {
+      kind: "youtube#video",
+      etag: "1J5ad0uE1OEFfgqwSw5J4NDlo3s",
+      id: "3KfX8xm5QgQ",
+      snippet: [null],
+      statistics: [null],
+    },
+    {
+      kind: "youtube#video",
+      etag: "cVWuvBX5eI-lsmxaZrRam74HMcs",
+      id: "UHdKOtTChjY",
+      snippet: [null],
+      statistics: [null],
+    },
+  ],
+};
 
 const mobileExpectedResponse = expectedResponse;
 const webExpectedResponse = expectedResponse;
