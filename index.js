@@ -23,10 +23,11 @@ const mobileVideosFileName = "mobile-videos.json";
 const webVideosFileName = "web-videos.json";
 
 const parseResponse = (res) => {
-  return res.map((item) => {
+  const data = res.map((item) => {
     item.snippet.publishedOn = item.snippet.publishedAt;
     return item;
   });
+  return { videos: data };
 };
 
 const writeToFile = (response, fileName) => {
